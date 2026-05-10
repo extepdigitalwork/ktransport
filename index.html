@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasprzycki Transport & Spedycja | Automatyzacja Logistyki by EXTEP</title>
+    <style>
+        :root {
+            --red-brand: #e63946; /* Czerwień Kasprzycki */
+            --dark-blue: #1d3557;
+            --light-bg: #f1faee;
+            --white: #ffffff;
+            --overlay: rgba(29, 53, 87, 0.7);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-blue);
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
+        }
+
+        /* Sekcja Hero z tłem (Ciężarówka w Alpach) */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(var(--overlay), var(--overlay)), 
+                        url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(29, 53, 87, 0.95);
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--red-brand);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        /* Panele Dostępu (Przyciski) */
+        .btn-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1100px;
+        }
+
+        .action-btn {
+            padding: 18px;
+            background: var(--red-brand);
+            color: white;
+            border: 2px solid var(--red-brand);
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.4s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .action-btn:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+        }
+
+        /* Sekcja Narzędzi (Widgety) */
+        .widgets {
+            padding: 80px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .widget-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--red-brand);
+        }
+
+        .widget-box h2 {
+            margin-top: 0;
+            color: var(--dark-blue);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Automatyzacja EXTEP */
+        .extep-section {
+            background: var(--dark-blue);
+            color: white;
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            max-width: 250px;
+        }
+
+        .feature-item i {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--red-brand);
+        }
+
+        footer {
+            background: #111;
+            color: #888;
+            padding: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .status-tag {
+            display: inline-block;
+            background: #d1fae5;
+            color: #065f46;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#hero">Start</a>
+        <a href="#tracking">Śledzenie</a>
+        <a href="#calc">Kalkulator Tras</a>
+        <a href="#rekrutacja">Kariera</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <section class="hero" id="hero">
+        <h1>KASPRZYCKI TRANSPORT</h1>
+        <p>Specjaliści w spedycji międzynarodowej. Trasy przez Alpy i całą Europę z wykorzystaniem najnowszych technologii automatyzacji.</p>
+        
+        <div class="btn-panel">
+            <button class="action-btn">💻 Gabinet Kierowcy</button>
+            <button class="action-btn">🤝 Strefa Klienta</button>
+            <button class="action-btn">🔎 Panel Rekrutera</button>
+            <button class="action-btn">📍 Lokalizacje Baz</button>
+        </div>
+    </section>
+
+    <section class="widgets">
+        <div class="widget-box" id="calc">
+            <h2>Wyliczenie Trasy</h2>
+            <p>Automatyczna wycena kosztów transportu (km/stawka).</p>
+            <input type="text" placeholder="Punkt załadunku (np. Warszawa, PL)">
+            <input type="text" placeholder="Punkt rozładunku (np. Mediolan, IT)">
+            <select>
+                <option>Wybierz typ nadwozia</option>
+                <option>Chłodnia (Termo)</option>
+                <option>Plandeka (Standard)</option>
+                <option>Zestaw (Mega)</option>
+            </select>
+            <button class="action-btn" style="width: 100%;">Oblicz cenę i trasę</button>
+        </div>
+
+        <div class="widget-box" id="tracking">
+            <h2>Gdzie jest ładunek?</h2>
+            <p>Monitoring GPS w czasie rzeczywistym dla Twojej dostawy.</p>
+            <input type="text" placeholder="Wprowadź numer zlecenia lub CMR">
+            <button class="action-btn" style="width: 100%; background: var(--dark-blue);">Sprawdź lokalizację</button>
+            
+            <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                <strong>Aktualny status:</strong> <br>
+                <span class="status-tag">W TRASIE</span> <br>
+                <small>Lokalizacja: Autostrada A12, okolice Innsbrucka (Austria)</small>
+            </div>
+        </div>
+    </section>
+
+    <section class="extep-section">
+        <h2>Systemy Automatyzacji EXTEP Digital</h2>
+        <p>Wdrażamy technologię, która optymalizuje każdy kilometr.</p>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <strong>Smart Recruiter</strong>
+                <p>Automatyczna weryfikacja dokumentów kierowców i szybka rekrutacja online.</p>
+            </div>
+            <div class="feature-item">
+                <strong>Real-Time Analytics</strong>
+                <p>Podgląd kosztów paliwa i rentowności tras w czasie rzeczywistym.</p>
+            </div>
+            <div class="feature-item">
+                <strong>Digital Archive</strong>
+                <p>E-dokumentacja (CMR/Faktury) dostępna 24/7 w chmurze dla klienta.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Kasprzycki Transport i Spedycja. Wszystkie prawa zastrzeżone.</p>
+        <p style="color: #555;">Projekt, design i automatyzacja procesów: <strong>EXTEP Digital Agency</strong></p>
+    </footer>
+
+</body>
+</html>
