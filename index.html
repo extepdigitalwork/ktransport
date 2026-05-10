@@ -38,20 +38,29 @@
             padding: 20px;
         }
 
+        /* --- ZMODYFIKOWANA NAWIGACJA --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             background: rgba(29, 53, 87, 0.95);
-            padding: 15px 0;
+            min-height: 55px;
             display: flex;
-            justify-content: center;
-            gap: 25px;
+            align-items: center;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        nav a {
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
             color: white;
             text-decoration: none;
             font-weight: bold;
@@ -59,11 +68,62 @@
             font-size: 0.85rem;
             letter-spacing: 1px;
             transition: 0.3s;
+            padding: 15px 0;
         }
 
-        nav a:hover {
+        .nav-links a:hover {
             color: var(--red-brand);
         }
+
+        /* Ikona Hamburgera */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+        }
+
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Wersja mobilna dla nawigacji */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none; /* Ukryte domyślnie */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: rgba(29, 53, 87, 0.98);
+                padding: 10px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+            }
+
+            .nav-links.active {
+                display: flex; /* Pokazane po kliknięciu */
+            }
+
+            .nav-links a {
+                padding: 15px;
+                text-align: center;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+        }
+        /* --- KONIEC MODYFIKACJI NAWIGACJI --- */
 
         h1 {
             font-size: 3.5rem;
@@ -188,11 +248,19 @@
 <body>
 
     <nav>
-        <a href="#hero">Start</a>
-        <a href="#tracking">Śledzenie</a>
-        <a href="#calc">Kalkulator Tras</a>
-        <a href="#rekrutacja">Kariera</a>
-        <a href="#kontakt">Kontakt</a>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        
+        <div class="nav-links" id="nav-links">
+            <a href="#hero">Start</a>
+            <a href="#tracking">Śledzenie</a>
+            <a href="#calc">Kalkulator Tras</a>
+            <a href="#rekrutacja">Kariera</a>
+            <a href="#kontakt">Kontakt</a>
+        </div>
     </nav>
 
     <section class="hero" id="hero">
@@ -257,9 +325,26 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Kasprzycki Transport i Spedycja. Wszystkie prawa zastrzeżone.</p>
+        <p>&copy; 2026 Kasprzycki Transport i Spedycja. Wszystkie prawa zastrzeżone.</p>
         <p style="color: #555;">Projekt, design i automatyzacja procesów: <strong>EXTEP Digital Agency</strong></p>
     </footer>
 
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Opcjonalnie: ukryj menu po kliknięciu w link na urządzeniach mobilnych
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
